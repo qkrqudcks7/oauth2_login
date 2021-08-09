@@ -1,6 +1,13 @@
 # :fire: OAuth2
 
-## oauth2 로그인 동작 방식
+## :pushpin: OAuth2 구성요소
+
+1. client
+2. resource owner
+3. resource server
+4. authorization server
+
+## :pushpin: oauth2 로그인 동작 방식
 
 ### 1.사용자 측의 브라우저에서 엔드포인트로 접속
 
@@ -73,7 +80,7 @@ db에 없다면 추가하고, 있다면 업데이트한다.
 
 다음을 호출하여, JWT 인증 토큰을 생성하고 쿼리 문자열의 JWT 토큰과 함께
 
-사용자를 redirectURI로 보.
+사용자를 redirectURI로 보냄.
 
 
 
