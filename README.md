@@ -53,7 +53,7 @@ error가 발생하면 다음을 호출한다.
 
 Spring Security는 access_token에 대한 인증 코드를 교환하고,
 
-다음을 호출합니다.
+다음을 호출한다.
 <code>
 .userService(customOAuth2UserService)
 </code>
@@ -63,9 +63,17 @@ Spring Security는 access_token에 대한 인증 코드를 교환하고,
 
 customOAuth2UserService는 인증된 사용자를 검색하여,
 
-db에 없다면 추가하고, 있다면 업데이트합니다. 
+db에 없다면 추가하고, 있다면 업데이트한다. 
 
-### 6.
+### 6. JWT 토큰 생성
+
+<code>
+  .successHandler(oAuth2AuthenticationSuccessHandler)
+</code>
+
+다음을 호출하여, JWT 인증 토큰을 생성하고 쿼리 문자열의 JWT 토큰과 함께
+
+사용자를 redirectURI로 보.
 
 
 
