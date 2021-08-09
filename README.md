@@ -4,8 +4,9 @@
 
 1. client
 2. resource owner
-3. resource server
-4. authorization server
+3. resource server : 요청을 수신하고 권한을 검증하여 결과를 보냄
+4. authorization server : owner에게 권한을 부여
+
 
 ## :pushpin: oauth2 로그인 동작 방식
 
