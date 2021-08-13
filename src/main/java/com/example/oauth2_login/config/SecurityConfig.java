@@ -72,14 +72,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .cors()
-                .and()
+                    .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
+                    .and()
                 .csrf().disable()
                 .formLogin().disable()
                 .httpBasic().disable()
                 .exceptionHandling().authenticationEntryPoint(new RestAuthenticationEntryPoint())
-                .and()
+                    .and()
                 .authorizeRequests()
                 .antMatchers("/",
                         "/error",
@@ -93,18 +93,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.js").permitAll()
                 .antMatchers("/auth/**", "/oauth2/**").permitAll()
                 .anyRequest().authenticated()
-                .and()
+                    .and()
                 .oauth2Login()
                 .authorizationEndpoint()
                 .baseUri("/oauth2/authorize")
                 .authorizationRequestRepository(cookieOAuth2AuthorizationRequestRepository())
-                .and()
+                    .and()
                 .redirectionEndpoint()
                 .baseUri("/oauth2/callback/*")
-                .and()
+                    .and()
                 .userInfoEndpoint()
                 .userService(customOAuth2UserService)
-                .and()
+                    .and()
                 .successHandler(oAuth2AuthenticationSuccessHandler)
                 .failureHandler(oAuth2AuthenticationFailureHandler);
         http.addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

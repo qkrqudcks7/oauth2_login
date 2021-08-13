@@ -33,7 +33,6 @@ public class User {
     private final Boolean emailVerified = false;
 
     @JsonIgnore
-    @Column
     private String password;
 
     @NotNull

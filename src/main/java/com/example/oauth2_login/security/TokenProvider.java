@@ -14,6 +14,7 @@ import java.util.Date;
 @RequiredArgsConstructor
 // Json 웹 토큰을 생성하고 인증하는 클래스
 public class TokenProvider {
+
     private final AppProperties appProperties;
 
     public String createToken(Authentication authentication) {
