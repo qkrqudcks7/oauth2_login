@@ -59,6 +59,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         String targetUrl = redirectUri.orElse(getDefaultTargetUrl());
         String token = tokenProvider.createToken(authentication);
 
+        // UriComponentsBuilder: 서버단에서 문자열 URI를 만든다
         return UriComponentsBuilder.fromUriString(targetUrl)
                 .queryParam("token",token)
                 .build().toUriString();
