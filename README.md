@@ -17,7 +17,7 @@
 .baseUri("/oauth2/authorize")
 </code>
 
-baseUri인  http://localhost:8080/oauth2/authorize/{provider}?redirect_uri=http://localhost:8080/oauth2/redirect 로부터 시작한다
+baseUri인  http://localhost:8080/oauth2/authorize/{provider}?redirect_uri=http://{front_url}/oauth2/redirect 로부터 시작한다
 
 {provider}는 google, facebook, github를 설정해두었다.
 
