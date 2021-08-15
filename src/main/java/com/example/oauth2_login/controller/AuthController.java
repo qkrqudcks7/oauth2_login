@@ -16,10 +16,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
@@ -72,5 +69,19 @@ public class AuthController {
 
         return ResponseEntity.created(location)
                 .body(new ApiResponse(true, "회원가입 성공!"));
+    }
+
+    @PostMapping("/oauth2signup/{email}")
+    public String registerOauth2User(@PathVariable("email") String email,
+                                             @Valid @RequestBody SignUpRequest signUpRequest) {
+        User user = userRepository.findByEmail(email).get();
+        if (user.getPassword().equals(null)) {
+            throw new BadRequestException("이미 회원가입 된 이메일 입니다.");
+        }
+
+        user.setPassword(passwordEncoder.encode(signUpRequest.getPassword()));
+        userRepository.save(user);
+
+        return "회원가입 성공";
     }
 }

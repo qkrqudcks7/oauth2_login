@@ -66,8 +66,8 @@ export default {
           group: 'noti',
           type: 'error',
           duration: 6000,
-          title: err,
-          text: err
+          title: err.response.state,
+          text: err.response.data.message
         })
       }
     },

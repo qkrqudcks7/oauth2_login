@@ -60,4 +60,7 @@ public class User {
         return this;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
