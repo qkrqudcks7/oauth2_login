@@ -7,7 +7,7 @@
       <nav class="app-nav">
         <ul v-if="this.$store.getters.authenticated">
           <li>
-            <router-link to="/profile">Profile</router-link>
+            <a href='/profile'>Profile</a>
           </li>
           <li>
             <a @click="logout">Logout</a>

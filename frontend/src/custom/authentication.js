@@ -11,6 +11,8 @@ export default {
           text: '접근 권한이 업습니다.'
         })
       }
+      next('/')
     }
+    next()
   }
 }
